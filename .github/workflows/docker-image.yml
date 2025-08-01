@@ -1,11 +1,18 @@
-# Use official Python image as base
-FROM python:3.10-slim
+name: Docker Image CI
 
-# Set working directory in container
-WORKDIR /app
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
-# Copy current directory contents into container
-COPY . .
+jobs:
 
-# Run the Python app
-CMD ["python", "app.py"]
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
