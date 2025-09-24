@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WP Full Audit</title>
+</head>
+<body>
+  <h1>Run WP Full Audit</h1>
+  <form action="https://github.com/your-username/your-repo/actions/workflows/scan.yml/dispatches" method="POST">
+    <label for="url">Target URL:</label>
+    <input type="text" id="url" name="inputs[target_url]" placeholder="https://example.com" required>
+    <button type="submit">Run Scan</button>
+  </form>
+  <p>Reports will be available in <a href="reports/">Reports</a> once generated.</p>
+</body>
+</html>
